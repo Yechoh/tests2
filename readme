@@ -1,0 +1,41 @@
+choice1:
+1: split state space in two and pick simplest value from lowest part
+2: split state space in two and pick simplest value from highest part
+
+partition1:
+1: shift a lens of size 10 over an area with inrange constraint (12,38)
+2: shift a lens of size 10 over an area with inrange constraint (12,15)
+3: shift a lens of size 3 over an area with inrange constraint (12,38)
+
+RVOsplit1:
+1: when halving an int space as a circle, are inner and outer parts equally sized? No
+2: when halving an int space as a circle, and choosing from a part, is every value equally likely? Yes
+3: halving an int space and choosing a value
+4: halving an int space until it is size 1
+5: halving an int space until it is size 1, with an inrange constraint
+6: halving an int space as a circle until it is size 1 with two unconstrained areas
+7: halving an int space as a circle until it is size 1 with an inrange constraint
+8: halving an int space as a circle until it is size 1 with no constraint
+9: halving an int space as a circle until it is size 1 with an inrange constraint, by splitting in 8 ranges and keeping 4.
+10: halving an int space as a circle until it is size 1 with an inrange constraint, by splitting in 32 ranges and keeping 16.
+11: same, but in a state with 3 non-exclusive inrange constraints
+12: doing rvosplit with 'keep splitting as a circle', twice, remembering amount of times an area was invalid per run, and choosing between both returned values, giving preference to the one with the least invalid areas per run
+13: same, but with 3 non-exclusive inrange constraints, instead of 1
+14: same but with one small inrange
+15: without any constraint
+
+RVOsplit2:
+1: cut as a circle once, then cut in half constantly, interweaved with rejection sampling, by using the cut indexes as rejection sample.
+2: without some bugs
+3: with no constraint, instead of one
+4: only showing results of when the first round of rejection sampling did not hit
+5: rejection samples are no longer the cut indexes, but independent samples from the respective parts. all valid parts are kept.
+6: only showing results of when the first round of rejection sampling did not hit
+7: same, but with 2 small inrange constraints, instead of one
+8: same, but over a larger area, causing more iterations needed
+9: same, but with a testplot showing only the relevant part of the area
+10: if a solution is found, and splitting was needed, double the range of the part, and try again
+11: 2_5 without bugs, or 2_9 with also showing the results of the first round and inrange (30,100)
+12: with area (0,200) and inrange (30,80)
+
+
