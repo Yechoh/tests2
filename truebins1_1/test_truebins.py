@@ -9,7 +9,8 @@ LOW,HIGH = (0,5)
 TESTS = 1000
 TEST = True
 AMOUNT_OF_BINS = 20
-BINS_LOW,BINS_HIGH = (-100,100)
+BINS_LOW,BINS_HIGH = (-200,200)
+from collections import *
 
 
 def main():
@@ -42,7 +43,7 @@ def test():
         s = Solver()
         s.reset()
         s.set('smt.arith.random_initial_value', True)
-        s.add(And(x>LOW,x<HIGH))
+        s.add(And(x>=LOW,x<HIGH))
         s.add(bins(x))
         s.check()
         m = s.model()
@@ -51,6 +52,7 @@ def test():
 
 def plot():
     data = env.load("test")
+    print(Counter(data))
     amounts=[0]*(HIGH-LOW)
     for e in data:
         amounts[e-LOW]+=1
